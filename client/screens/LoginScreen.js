@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, TextInput, StyleSheet, Button } from "react-native";
 import firebase from "firebase";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -14,10 +14,14 @@ const LoginScreen = () => {
         // User successfully logged in
         const user = userCredential.user;
         console.log("User logged in: ", user.uid);
+        alert("Succesfull login!");
+        navigation.navigate("Home");
       })
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
+        alert("Failed login!");
+        navigation.navigate("Login");
       });
   };
 

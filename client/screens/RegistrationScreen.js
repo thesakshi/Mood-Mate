@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, TextInput, StyleSheet, Button } from "react-native";
 import firebase from "firebase";
 
-const RegistrationScreen = () => {
+const RegistrationScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -18,10 +18,17 @@ const RegistrationScreen = () => {
           email,
           name,
         });
+        // notify user of successful registration
+        alert("Registration successful!");
+
+        // navigate to LoginScreen after successful registration
+        navigation.navigate("Login");
       })
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
+        alert("Registration failed!");
+        navigation.navigate("Registration");
       });
   };
 
