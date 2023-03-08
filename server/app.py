@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_marshmallow import Marshmallow
 from Model import get_quote
+from Data import initialize_app
 
 app = Flask(__name__)
 
@@ -10,35 +11,18 @@ app = Flask(__name__)
 def get_articles():
     return jsonify ({"Hello": "World"})
 
-#ref = db.reference('/')
+ref = initialize_app()
 
 @app.route('/add', methods=['POST'])
 def add_articles():
     userID = request.json['userID']
     queryTime = request.json['time']
     responseQuery = request.json['responseQuery']
+    
+    relevant_quote = get_quote(responseQuery, ref)
 
-    emotion = get_quote(responseQuery)
 
-
-    # ref.set({
-    #     'Users': 
-    #     {
-    #         'user1':
-    #         {
-    #             'name': 'Sakshi'
-        
-    #         },
-    #         'user2':
-    #         {
-    #             'name': 'vinod'
-    #         }
-    #     }
-
-    #})
-
-    #print(userID)
-    return jsonify({userID: emotion})
+    return jsonify({userID: relevant_quote})
 
 
 

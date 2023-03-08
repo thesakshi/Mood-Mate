@@ -7,6 +7,7 @@ import torch.nn.functional as f
 import matplotlib.pyplot as plt
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from Data import initialize_app
 
 
 
@@ -31,7 +32,7 @@ class RelevantQuote:
         return self.model_sentiment.config.id2label[predicted_class_id]
     
     def load_data(self):
-        self.df = pd.read_csv('/Users/sakshi/Desktop/Mood-Mate/server/quotes_dataset.csv')
+        self.df = pd.read_csv('/Users/sakshi/Desktop/Mood-Mate/Mood-Mate/server/quotes_dataset.csv')
         self.df = self.df.iloc[:, :3]
         self.df.columns = ['Quote', 'Author', 'Tags']
         self.df = self.df.dropna()
