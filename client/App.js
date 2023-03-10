@@ -3,13 +3,8 @@ import React, {useEffect, useState} from 'react'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { ChatBotScreen } from './src/screens'
 import { FontAwesome } from 'react-native-vector-icons';
-import { StatusBar } from "expo-status-bar";
-import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+
 import {
   HomeScreen,
   LoginScreen,
