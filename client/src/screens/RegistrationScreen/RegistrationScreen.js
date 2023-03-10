@@ -1,20 +1,24 @@
 import React, { useState } from "react";
 import { View, TextInput, Text, StyleSheet, Button } from "react-native";
 
-const LoginScreen = ({ navigation }) => {
+const RegistrationScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   // const { firebase } = route.params;
 
-  const handleLogin = () => {
-    alert("login pressed!");
+  const handleRegistration = () => {
+    alert("register pressed!");
     // firebase
     //   .auth()
-    //   .signInWithEmailAndPassword(email, password)
+    //   .createUserWithEmailAndPassword(email, password)
     //   .then((userCredential) => {
-    //     // User successfully logged in
     //     const user = userCredential.user;
-    //     console.log("User logged in: ", user.uid);
+    //     firebase.database().ref(`users/${user.uid}`).set({
+    //       email,
+    //       name,
+    //     });
+    //     navigation.navigate("Login");
     //   })
     //   .catch((error) => {
     //     const errorMessage = error.message;
@@ -24,6 +28,12 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <TextInput
+        style={styles.input}
+        value={name}
+        placeholder="Name"
+        onChangeText={setName}
+      />
       <TextInput
         style={styles.input}
         value={email}
@@ -37,14 +47,14 @@ const LoginScreen = ({ navigation }) => {
         secureTextEntry
         onChangeText={setPassword}
       />
-      <Button title="Login" onPress={handleLogin} />
-      <Text style={styles.registerText}>
-        Don't have an account?{" "}
+      <Button title="Register" onPress={handleRegistration} />
+      <Text style={styles.loginText}>
+        Already have an account?{" "}
         <Text
-          style={styles.registerButton}
-          onPress={() => navigation.navigate("Register")}
+          style={styles.loginButton}
+          onPress={() => navigation.navigate("Login")}
         >
-          Register
+          Login
         </Text>
       </Text>
     </View>
@@ -67,13 +77,13 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
     borderRadius: 5,
   },
-  registerText: {
+  loginText: {
     marginTop: 20,
     fontSize: 16,
   },
-  registerButton: {
+  loginButton: {
     fontWeight: "bold",
   },
 });
 
-export default LoginScreen;
+export default RegistrationScreen;
