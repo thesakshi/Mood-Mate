@@ -1,13 +1,13 @@
 import firebase_admin
 from firebase_admin import db
 import pandas as pd
-from config import FIREBASE_PATH, DATABSE_URL
+from config import FIREBASE_PATH, DATABASE_URL
 
 
 def initialize_app():
 	cred_obj = firebase_admin.credentials.Certificate(FIREBASE_PATH)
 	default_app = firebase_admin.initialize_app(cred_obj, {
-		'databaseURL': DATABSE_URL
+		'databaseURL': DATABASE_URL
 		})
 
 	ref = db.reference('/')

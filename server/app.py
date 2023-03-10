@@ -18,15 +18,18 @@ def add_articles():
     userID = request.json['userID']
     queryTime = request.json['time']
     responseQuery = request.json['responseQuery']
+
     
+
     relevant_quote = get_quote(responseQuery, ref)
-
-
-    return jsonify({userID: relevant_quote})
+    x=jsonify({'response': relevant_quote})
+ 
+    return x
 
 
 
 
 
 if __name__ == "__main__":
+
     app.run(debug=True)

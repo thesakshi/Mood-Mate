@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "expo": "^48.0.6"
+    "expo": "^48.0.6",
+    "react-chatbot-kit": "^2.1.2"
   }
 }
