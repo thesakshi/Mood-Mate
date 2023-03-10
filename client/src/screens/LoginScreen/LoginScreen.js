@@ -29,6 +29,7 @@ const LoginScreen = ({ navigation }) => {
         value={email}
         placeholder="Email"
         onChangeText={setEmail}
+        placeholderTextColor="gray"
       />
       <TextInput
         style={styles.input}
@@ -36,6 +37,7 @@ const LoginScreen = ({ navigation }) => {
         placeholder="Password"
         secureTextEntry
         onChangeText={setPassword}
+        placeholderTextColor="gray"
       />
       <Button title="Login" onPress={handleLogin} />
       <Text style={styles.registerText}>

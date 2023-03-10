@@ -4,7 +4,9 @@ import { View, Button, Text, StyleSheet } from "react-native";
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to MoodMate</Text>
+      <Text style={styles.title}>mooDMate</Text>
+      <Text style={{marginBottom:80}}>Motivational Quotes To Boost Your Mood 🚀</Text>
+
       <View style={styles.buttonsContainer}>
         <Button
           title="Register"
@@ -31,8 +33,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: "bold",
-    marginBottom: 50,
-    textAlign: "center",
+    marginBottom: 10,
+    textAlign: "center"
   },
   buttonsContainer: {
     flexDirection: "column", // change to column
@@ -42,7 +44,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "#FFD54F",
     borderRadius: 10, // increase border radius to make it more rounded
-    paddingVertical: 12, // use paddingVertical to add vertical padding
+    paddingVertical: 20, // use paddingVertical to add vertical padding
     paddingHorizontal: 16, // use paddingHorizontal to add horizontal padding
     shadowColor: "#000", // add shadow to create the indented look
     shadowOpacity: 0.2,

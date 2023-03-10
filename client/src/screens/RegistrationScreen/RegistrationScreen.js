@@ -33,12 +33,14 @@ const RegistrationScreen = ({ navigation }) => {
         value={name}
         placeholder="Name"
         onChangeText={setName}
+        placeholderTextColor="gray"
       />
       <TextInput
         style={styles.input}
         value={email}
         placeholder="Email"
         onChangeText={setEmail}
+        placeholderTextColor="gray"
       />
       <TextInput
         style={styles.input}
@@ -46,12 +48,14 @@ const RegistrationScreen = ({ navigation }) => {
         placeholder="Password"
         secureTextEntry
         onChangeText={setPassword}
+        placeholderTextColor="gray"
       />
       <Button title="Register" onPress={handleRegistration} />
       <Text style={styles.loginText}>
         Already have an account?{" "}
         <Text
           style={styles.loginButton}
+         
           onPress={() => navigation.navigate("Login")}
         >
           Login
@@ -67,11 +71,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF9C4",
     alignItems: "center",
     justifyContent: "center",
+
   },
   input: {
     width: "80%",
-    height: 50,
-    margin: 10,
+    height: 40,
+    margin: 5,
     padding: 10,
     borderWidth: 1,
     borderColor: "#ccc",
@@ -80,6 +85,7 @@ const styles = StyleSheet.create({
   loginText: {
     marginTop: 20,
     fontSize: 16,
+ 
   },
   loginButton: {
     fontWeight: "bold",
