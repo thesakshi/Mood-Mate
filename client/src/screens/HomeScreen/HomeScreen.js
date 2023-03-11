@@ -5,7 +5,9 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>mooDMate</Text>
-      <Text style={{marginBottom:80}}>Motivational Quotes To Boost Your Mood 🚀</Text>
+      <Text style={{ marginBottom: 80 }}>
+        Motivational Quotes To Boost Your Mood 🚀
+      </Text>
 
       <View style={styles.buttonsContainer}>
         <Button
@@ -34,7 +36,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     marginBottom: 10,
-    textAlign: "center"
+    textAlign: "center",
   },
   buttonsContainer: {
     flexDirection: "column", // change to column

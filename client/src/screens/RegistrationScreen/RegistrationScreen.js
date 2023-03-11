@@ -1,29 +1,37 @@
 import React, { useState } from "react";
-import { View, TextInput, Text, StyleSheet, Button } from "react-native";
+import { View, TextInput, Text, StyleSheet, Button, Alert } from "react-native";
+import { firebase } from "../../firebase/config";
 
 const RegistrationScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  // const { firebase } = route.params;
 
   const handleRegistration = () => {
-    alert("register pressed!");
-    // firebase
-    //   .auth()
-    //   .createUserWithEmailAndPassword(email, password)
-    //   .then((userCredential) => {
-    //     const user = userCredential.user;
-    //     firebase.database().ref(`users/${user.uid}`).set({
-    //       email,
-    //       name,
-    //     });
-    //     navigation.navigate("Login");
-    //   })
-    //   .catch((error) => {
-    //     const errorMessage = error.message;
-    //     console.log(errorMessage);
-    //   });
+    // alert(firebase);
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        // firebase.database().ref(`users/${user.uid}`).set({
+        //   email,
+        //   name,
+        // });
+        Alert.alert("Success", "Successfully Registered!", [
+          {
+            text: "OK",
+            onPress: () => {
+              // Navigate to the Login screen
+              navigation.navigate("Login");
+            },
+          },
+        ]);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
   };
 
   return (
@@ -55,7 +63,6 @@ const RegistrationScreen = ({ navigation }) => {
         Already have an account?{" "}
         <Text
           style={styles.loginButton}
-         
           onPress={() => navigation.navigate("Login")}
         >
           Login
@@ -71,7 +78,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF9C4",
     alignItems: "center",
     justifyContent: "center",
-
   },
   input: {
     width: "80%",
@@ -85,7 +91,6 @@ const styles = StyleSheet.create({
   loginText: {
     marginTop: 20,
     fontSize: 16,
- 
   },
   loginButton: {
     fontWeight: "bold",
