@@ -4,14 +4,15 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { FontAwesome } from 'react-native-vector-icons';
+import { LandingScreen } from "./src/screens";
 
 import {
   HomeScreen,
   LoginScreen,
   RegistrationScreen,
-  ChatBotScreen,
+  ChatBotScreen
 } from "./src/screens";
-// import { firebase } from "./src/firebase/config";
+
 
 const Stack = createStackNavigator();
 
@@ -23,7 +24,23 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <>
-        <Stack.Screen 
+          <Stack.Screen 
+          name="LandingScreen" 
+          component={LandingScreen} 
+          options={{ headerShown: false }}
+          />
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen
+            name="Register"
+            component={RegistrationScreen}
+            // initialParams={{ firebase }}
+          />
+          <Stack.Screen
+            name="Login"
+            component={LoginScreen}
+            // initialParams={{ firebase }}
+          />
+                 <Stack.Screen 
         name="ChatBot" 
         component={ChatBotScreen}
         options={({ navigation}) => ({
@@ -48,18 +65,6 @@ export default function App() {
         ),
         })}
         />
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen
-            name="Register"
-            component={RegistrationScreen}
-            // initialParams={{ firebase }}
-          />
-          <Stack.Screen
-            name="Login"
-            component={LoginScreen}
-            // initialParams={{ firebase }}
-          />
-          <Stack.Screen name="ChatBot" component={ChatBotScreen} />
         </>
       </Stack.Navigator>
     </NavigationContainer>

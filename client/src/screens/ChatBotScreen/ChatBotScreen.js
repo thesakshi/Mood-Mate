@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import { FontAwesome } from 'react-native-vector-icons';
 
+
 export default class ChatScreen extends Component {
   constructor(props) {
     super(props);
