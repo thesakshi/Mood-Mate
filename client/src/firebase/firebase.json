@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "moodmate-cffce",
+  "private_key_id": "7fafb35a49a289704e34b9198c9ca761a6a6ca37",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDegIBuG8iEyDqB\nvqTUDBI6l8P09AtmJ0KFMoPhR1HMJgfBMWOI2sJ14Frm+zxvWN7jwL2VEet0E8L2\nTkRQ314IQCtaY5fbp4aRsYZqwj2kO+9pib8dLx4BRIOabogtfVBJvrHqbWKEYngQ\nHR4ZDPjFGgmlJDGCGFITzVCi54vaqurwobdZYMwqZdsA1Q5Qr5Iny5fnDdvi75/O\nvTywwuqytx/a/BC3zFEjwoAVT0yaq8Mi6YbzzzNWSv56qUY8cJbHHrnPvMqfWB7Q\n/HcHT4PKqh2ggd0hIojohU0P/KxSe3bAqm7RiTkU8jYjNh5cP87ZxX1lNB+SBAEE\nUiT2aBsBAgMBAAECggEAFH9CADgPANcb4gKYrJrFaHW9V5N5JAVPMMthMB+h1BdX\ndN9X4VjwZmuEnu1bY+aL90SKMnFe1L1SozNn7QtRXkaLDTNKNLH6HkcnBYQJ/wHb\nzEfO6KFZN5oC2vcpFF0MSGmIz6UZWO4OoW1imGwu0/l8v08rlbsn1ICALSxSIJKc\n2LmWzIjvlLMFncNsSkOKYTj0/yOBqNkFM7ITDJ6TJf+PJ6q1p2D04uCs+JxoplcG\n7jVO6P+v0rLNhdz4iTECL5NFxb6CzhasZJeUgvK8VslEQ8qSxOT+S9DMogJR695+\nw5disfxyXssPd9prM7I0Dpm07Nxbni0YJfztzzyJAQKBgQD98T7UmxWMGAO7Tdmj\nGJIsWWII7xviY33dBYOG32UDoNBmzXoZm4qrqKowfIf9XJglWArAkLk/DgSFILPi\nxuxGIw80fcmHk4/vFH2+P8jthBHJF5vjOwMJJRLcpRsTHBijab8fYfVC16q/rnJ7\nlfgD5SPlSndjpFpWNTBTDIASnwKBgQDgTgoHkm6xstaa6q8BtLrTgzCIESOxgtYG\n/vdjjiHByaUlv/kIb2zF4jV9kD1OOKmrI64MkJnggZsLTU0ztOLQnbkhqJwO8y6j\nuZzdpb+bTLCDBRpj/C6964N+i7eYKJLFOteYT4BUERAhTP7B1jiJym+xJ5LDZZqz\nC8AwYVOOXwKBgClFOtvctHzHLlwTg+pgxOjWQfuHuLVrS/pOuhiCV+1mBliezlg5\nEilhyP8GTiecE9IF5AF1w9V+lrd4ICQcBixD6GW0h7sz/TFy2BjCTwpi620OHDSq\n04x57P3VC3homYx9VCVqiyyo1kQ+urZhIiSn6dSK7KpR/KiEDm2A25OrAoGBANKg\n1ZA4tFOPcTB18jKy6MEXryoGljLpfluBbwOAgzh7RuZE9/Aw2b6UZdBr8vWSBdlc\nHuNTofuNGO+q/jTwxhBKG3982la7iu9Zq/EC5QNLJ3FRCHAdbjMPhiH9x0BN0Uz9\nrVgsR4ApqbDroUqaA+t4Ohvr4kg0D+nTvfxwWEsXAoGAKTcGkJlu+cE5QcXv1Jgi\nlU4HoMQhhl/K0aUlzePozX9nDBiNjuEorDjoJMtT5vazwcaAllRQSMWjDPgXz2Or\n7DUtuqPUl/43ZVkuFhCQoaI2y6whcF0nKhrdW8F/Ge/iV0/Thehyhq2ybUPUfGh3\nevblITNZfCSVdI8tMHjPa4s=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-bmdve@moodmate-cffce.iam.gserviceaccount.com",
+  "client_id": "102318313488882320554",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-bmdve%40moodmate-cffce.iam.gserviceaccount.com"
+}

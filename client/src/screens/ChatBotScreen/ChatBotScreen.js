@@ -1,14 +1,21 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import { FontAwesome } from 'react-native-vector-icons';
+import React, { Component } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
+import { FontAwesome } from "react-native-vector-icons";
 
 
 export default class ChatScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: '',
-      chatLog: [{ from: 'bot', message: 'Hi there! How was this morning?' }],
+      message: "",
+      chatLog: [{ from: "bot", message: "Hi there! How was this morning?" }],
     };
     this.scrollViewRef = React.createRef();
   }
@@ -20,45 +27,60 @@ export default class ChatScreen extends Component {
 
   handleSend = () => {
     // Handle sending the message to a backend or chatbot service
-    const newMessage = { from: 'user', message: this.state.message };
+    const newMessage = { from: "user", message: this.state.message };
     const chatLog = [...this.state.chatLog, newMessage];
-    this.setState({ message: '', chatLog });
-    fetch('http://127.0.0.1:5000/add', {
-        method: 'POST',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ userID: "Sakshi", time: 'morning', responseQuery: newMessage['message']}),
+    this.setState({ message: "", chatLog });
+    fetch("http://127.0.0.1:5000/add", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userID: "Sakshi",
+        time: "morning",
+        responseQuery: newMessage["message"],
+      }),
     })
-    .then((response) => response.json())
-    
-    .then((responseJson) => {
+      .then((response) => response.json())
+
+      .then((responseJson) => {
         console.log(responseJson);
-        const newMessage = { from: 'bot', message: responseJson.response};
+        const newMessage = { from: "bot", message: responseJson.response };
         const chatLog = [...this.state.chatLog, newMessage];
         this.setState({ chatLog });
-    })
-    .catch((error) => {
+      })
+      .catch((error) => {
         console.log(error);
-    })
+      });
     //setTimeout(() => this.handleBotResponse(), 1000); // Simulate bot response after 1 second
-  }
+  };
 
   handleBotResponse = () => {
     // Simulate bot response
-    const newMessage = { from: 'bot', message: 'I am a bot and do not have the ability to assist you at this time.' };
+    const newMessage = {
+      from: "bot",
+      message:
+        "I am a bot and do not have the ability to assist you at this time.",
+    };
     const chatLog = [...this.state.chatLog, newMessage];
     this.setState({ chatLog });
-  }
+  };
 
   renderChatLog = () => {
     return this.state.chatLog.map((message, index) => (
-      <View key={index} style={message.from === 'bot' ? styles.botMessageContainer : styles.userMessageContainer}>
+      <View
+        key={index}
+        style={
+          message.from === "bot"
+            ? styles.botMessageContainer
+            : styles.userMessageContainer
+        }
+      >
         <Text style={styles.messageText}>{message.message}</Text>
       </View>
     ));
-  }
+  };
 
   render() {
     return (
@@ -78,7 +100,7 @@ export default class ChatScreen extends Component {
             placeholder="Type your message here"
           />
           <TouchableOpacity style={styles.sendButton} onPress={this.handleSend}>
-            <FontAwesome name="send" size={24} color = '#e1b624' />
+            <FontAwesome name="send" size={24} color="#e1b624" />
           </TouchableOpacity>
         </View>
       </View>
@@ -89,7 +111,7 @@ export default class ChatScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fffae5',
+    backgroundColor: "#fffae5",
     padding: 10,
   },
   chatContainer: {
@@ -97,28 +119,28 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   userMessageContainer: {
-    backgroundColor: '#f7e9b7',
+    backgroundColor: "#f7e9b7",
     padding: 10,
     borderRadius: 25,
-    alignSelf: 'flex-end',
+    alignSelf: "flex-end",
     marginBottom: 5,
   },
   botMessageContainer: {
-    backgroundColor: '#f7e9b7',
+    backgroundColor: "#f7e9b7",
     padding: 10,
     borderRadius: 25,
-    alignSelf: 'flex-start',
+    alignSelf: "flex-start",
     marginBottom: 5,
   },
   messageText: {
-    color: '#000',
+    color: "#000",
     fontSize: 16,
   },
   inputContainer: {
-    backgroundColor: '#f7e9b7',
-    flexDirection: 'row',
-    overflow: 'scroll',
-    alignItems: 'center',
+    backgroundColor: "#f7e9b7",
+    flexDirection: "row",
+    overflow: "scroll",
+    alignItems: "center",
     paddingVertical: 5,
     paddingHorizontal: 5,
     paddingStart: 15,
@@ -132,6 +154,6 @@ const styles = StyleSheet.create({
   sendButton: {
     paddingVertical: 10,
     paddingHorizontal: 20,
-    paddingEnd: 10
-  }
+    paddingEnd: 10,
+  },
 });

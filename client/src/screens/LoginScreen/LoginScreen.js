@@ -1,25 +1,32 @@
 import React, { useState } from "react";
-import { View, TextInput, Text, StyleSheet, Button } from "react-native";
+import { View, TextInput, Text, StyleSheet, Button, Alert } from "react-native";
+import { firebase } from "../../firebase/config";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const { firebase } = route.params;
 
   const handleLogin = () => {
-    alert("login pressed!");
-    // firebase
-    //   .auth()
-    //   .signInWithEmailAndPassword(email, password)
-    //   .then((userCredential) => {
-    //     // User successfully logged in
-    //     const user = userCredential.user;
-    //     console.log("User logged in: ", user.uid);
-    //   })
-    //   .catch((error) => {
-    //     const errorMessage = error.message;
-    //     console.log(errorMessage);
-    //   });
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // User successfully logged in
+        const user = userCredential.user;
+        Alert.alert("Success", "Successfully Logged In!", [
+          {
+            text: "OK",
+            onPress: () => {
+              // Navigate to the Login screen
+              navigation.navigate("ChatBot");
+            },
+          },
+        ]);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
   };
 
   return (
