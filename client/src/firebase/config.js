@@ -18,4 +18,4 @@ if (firebase.apps.length === 0) {
 
 
 
-export { firebaseDb, firebaseAuth };
+export { firebase };

@@ -4,9 +4,10 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { FontAwesome } from 'react-native-vector-icons';
-import { LandingScreen } from "./src/screens";
+
 
 import {
+  LandingScreen,
   HomeScreen,
   LoginScreen,
   RegistrationScreen,
@@ -65,36 +66,6 @@ export default function App() {
         })}
         />
         </>
-        <Stack.Screen
-          name="ChatBot"
-          component={ChatBotScreen}
-          options={({ navigation }) => ({
-            title: "MoodMate",
-            headerStyle: {
-              backgroundColor: "#e1b62f",
-            },
-            headerTintColor: "#fff",
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-            headerRight: () => (
-              <TouchableOpacity
-                onPress={() => {
-                  //Signout Logic Here
-                  //navigation.navigate('Login')
-                  console.log("Hi In signout");
-                }}
-              >
-                <FontAwesome
-                  name="user"
-                  size={25}
-                  color="#fff"
-                  style={{ marginRight: 10 }}
-                />
-              </TouchableOpacity>
-            ),
-          })}
-        />
       </Stack.Navigator>
     </NavigationContainer>
   );
