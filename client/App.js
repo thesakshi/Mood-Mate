@@ -2,11 +2,13 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useEffect, useState} from 'react'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
+
 import { FontAwesome } from 'react-native-vector-icons';
-import { LandingScreen } from "./src/screens";
+
 
 import {
+  LandingScreen,
   HomeScreen,
   LoginScreen,
   RegistrationScreen,
@@ -21,7 +23,11 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        ...TransitionPresets.ModalSlideFromBottomIOS,
+      }}>
         <>
           <Stack.Screen 
           name="LandingScreen" 
@@ -65,7 +71,6 @@ export default function App() {
         })}
         />
         </>
-
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { View, TextInput, Text, StyleSheet, Button, Alert } from "react-native";
-import { firebase } from "../../firebase/config";
+import { View, TextInput, StyleSheet, Button } from "react-native";
+import firebase from "firebase";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -13,19 +13,15 @@ const LoginScreen = ({ navigation }) => {
       .then((userCredential) => {
         // User successfully logged in
         const user = userCredential.user;
-        Alert.alert("Success", "Successfully Logged In!", [
-          {
-            text: "OK",
-            onPress: () => {
-              // Navigate to the Login screen
-              navigation.navigate("ChatBot");
-            },
-          },
-        ]);
+        console.log("User logged in: ", user.uid);
+        alert("Succesfull login!");
+        navigation.navigate("Home");
       })
       .catch((error) => {
         const errorMessage = error.message;
-        alert(errorMessage);
+        console.log(errorMessage);
+        alert("Failed login!");
+        navigation.navigate("Login");
       });
   };
 
@@ -36,7 +32,6 @@ const LoginScreen = ({ navigation }) => {
         value={email}
         placeholder="Email"
         onChangeText={setEmail}
-        placeholderTextColor="gray"
       />
       <TextInput
         style={styles.input}
@@ -44,18 +39,8 @@ const LoginScreen = ({ navigation }) => {
         placeholder="Password"
         secureTextEntry
         onChangeText={setPassword}
-        placeholderTextColor="gray"
       />
       <Button title="Login" onPress={handleLogin} />
-      <Text style={styles.registerText}>
-        Don't have an account?{" "}
-        <Text
-          style={styles.registerButton}
-          onPress={() => navigation.navigate("Register")}
-        >
-          Register
-        </Text>
-      </Text>
     </View>
   );
 };
@@ -63,7 +48,6 @@ const LoginScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFF9C4",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -75,13 +59,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 5,
-  },
-  registerText: {
-    marginTop: 20,
-    fontSize: 16,
-  },
-  registerButton: {
-    fontWeight: "bold",
   },
 });
 
