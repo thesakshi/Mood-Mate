@@ -6,7 +6,7 @@ const LandingScreen = ({ navigation }) => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-        navigation.navigate('Home');
+        navigation.navigate('Register');
     }, 2000);
     return () => clearTimeout(timeout);
   }, [navigation]);

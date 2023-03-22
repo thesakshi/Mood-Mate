@@ -12,7 +12,8 @@ import {
   HomeScreen,
   LoginScreen,
   RegistrationScreen,
-  ChatBotScreen
+  ChatBotScreen,
+  CategoriesScreen,
 } from "./src/screens";
 
 const Stack = createStackNavigator();
@@ -25,7 +26,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
       screenOptions={{
-        headerShown: false,
+        headerShown: true,
         ...TransitionPresets.ModalSlideFromBottomIOS,
       }}>
         <>
@@ -34,21 +35,28 @@ export default function App() {
           component={LandingScreen} 
           options={{ headerShown: false }}
           />
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen
-            name="Register"
-            component={RegistrationScreen}
-            // initialParams={{ firebase }}
-          />
+
           <Stack.Screen
             name="Login"
             component={LoginScreen}
             // initialParams={{ firebase }}
           />
-                 <Stack.Screen 
-        name="ChatBot" 
-        component={ChatBotScreen}
-        options={({ navigation}) => ({
+          
+          <Stack.Screen
+            name="Register"
+            component={RegistrationScreen}
+            // initialParams={{ firebase }}
+          />
+
+          <Stack.Screen
+            name="Categories"
+            component={CategoriesScreen}
+            // initialParams={{ firebase }}
+          />
+        <Stack.Screen 
+          name="ChatBot" 
+          component={ChatBotScreen}
+          options={({navigation}) => ({
           title: 'MoodMate',
           headerStyle: {
             backgroundColor: '#e1b62f',
@@ -63,12 +71,11 @@ export default function App() {
                 //Signout Logic Here
                 //navigation.navigate('Login')
                 console.log("Hi In signout");
-              }}
-              >
+              }}>
                 <FontAwesome name="user" size={25} color="#fff" style={{ marginRight: 10 }} />
               </TouchableOpacity>
-        ),
-        })}
+          ),
+          })}
         />
         </>
       </Stack.Navigator>

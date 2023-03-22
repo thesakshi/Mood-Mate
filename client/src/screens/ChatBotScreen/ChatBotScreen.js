@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import { FontAwesome } from "react-native-vector-icons";
 
-
 export default class ChatScreen extends Component {
   constructor(props) {
     super(props);
@@ -43,7 +42,6 @@ export default class ChatScreen extends Component {
       }),
     })
       .then((response) => response.json())
-
       .then((responseJson) => {
         console.log(responseJson);
         const newMessage = { from: "bot", message: responseJson.response };
@@ -86,6 +84,7 @@ export default class ChatScreen extends Component {
     return (
       <View style={styles.container}>
         <ScrollView
+        
           style={styles.chatContainer}
           ref={this.scrollViewRef}
           onContentSizeChange={() => this.scrollViewRef.current.scrollToEnd()}
@@ -111,7 +110,7 @@ export default class ChatScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fffae5",
+    backgroundColor:"#fffae5",
     padding: 10,
   },
   chatContainer: {
@@ -125,12 +124,19 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end",
     marginBottom: 5,
   },
+
+  headerText: {
+    color: "#fff",
+    fontSize: 24,
+    fontWeight: "bold",
+  },
   botMessageContainer: {
     backgroundColor: "#f7e9b7",
     padding: 10,
     borderRadius: 25,
     alignSelf: "flex-start",
-    marginBottom: 5,
+    marginBottom: 15,
+    marginTop: 10,
   },
   messageText: {
     color: "#000",
